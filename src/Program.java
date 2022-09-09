@@ -13,7 +13,6 @@ public class Program {
 		String posicao;
 		int turno = 0;
 		int jogador = 0;
-		boolean jogoAcabou = false;
 
 		if (tecla == 'p') {
 			System.out.println("Jogador um é representando por 'X' e jogador dois é representado por 'O'. ");
@@ -21,15 +20,18 @@ public class Program {
 			System.exit(tecla);
 		}
 		tabuleiro.imprimeTab();
-		do {
+		
+		while ((!tabuleiro.getJogoAcabou())) {
 			jogador = (jogador == 1) ? 2 : 1;
+			turno++;
+			System.out.println("Turno: " + turno);
+			System.out.println();
 			System.out.println("Vez do jogador " + jogador);
 			posicao = input.next();
 			tabuleiro.mTabuleiro(posicao, jogador);
-			turno++;
 			tabuleiro.imprimeTab();
-			System.out.println("Turno: " + turno);
-		} while (!jogoAcabou);
+			
+		}
 		input.close();
 	}
 }

@@ -4,13 +4,17 @@ public class Tabuleiro {
 
 	private char[][] tabuleiro = new char[3][3];
 	private int row, column;
-	private boolean testando = true;
+	boolean jogoAcabou = false;
 
 	public Tabuleiro() {
 	}
 
-	public boolean getTestando() {
-		return testando;
+	public boolean getJogoAcabou() {
+		return jogoAcabou;
+	}
+
+	public void setJogoAcabou(boolean jogoAcabou) {
+		this.jogoAcabou = jogoAcabou;
 	}
 
 	public char[][] mTabuleiro(String posicao, int jogador) {
@@ -18,6 +22,7 @@ public class Tabuleiro {
 		row = Integer.parseInt(values[0]);
 		column = Integer.parseInt(values[1]);
 		testarPosicao(jogador);
+		vitoria();
 		return tabuleiro;
 	}
 
@@ -49,9 +54,101 @@ public class Tabuleiro {
 
 	public void testarPosicao(int jogador) {
 		if (tabuleiro[row][column] == 'X' || tabuleiro[row][column] == 'O') {
-			System.out.println("Posição inválida");
+			System.out.println("Posição ocupada");
 		} else {
 			tabuleiro[row][column] = (jogador == 1) ? 'X' : 'O';
 		}
 	}
+	
+	public void vitoria() {
+		// diagonal esquerda cima
+		if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X'
+				|| tabuleiro[0][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][2] == 'O') {
+			if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// diagonal esquerda baixo
+		if (tabuleiro[2][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[0][2] == 'X'
+				|| tabuleiro[2][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[0][2] == 'O') {
+			if (tabuleiro[2][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[0][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// horizontal topo
+		if (tabuleiro[0][0] == 'X' && tabuleiro[0][1] == 'X' && tabuleiro[0][2] == 'X'
+				|| tabuleiro[0][0] == 'O' && tabuleiro[0][1] == 'O' && tabuleiro[0][2] == 'O') {
+			if (tabuleiro[0][0] == 'X' && tabuleiro[0][1] == 'X' && tabuleiro[0][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// horizontal meio
+		if (tabuleiro[1][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[1][2] == 'X'
+				|| tabuleiro[1][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[1][2] == 'O') {
+			if (tabuleiro[1][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[1][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// horizontal baixo
+		if (tabuleiro[2][0] == 'X' && tabuleiro[2][1] == 'X' && tabuleiro[2][2] == 'X'
+				|| tabuleiro[2][0] == 'O' && tabuleiro[2][1] == 'O' && tabuleiro[2][2] == 'O') {
+			if (tabuleiro[2][0] == 'X' && tabuleiro[2][1] == 'X' && tabuleiro[2][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// Vertical esquerda
+		if (tabuleiro[0][0] == 'X' && tabuleiro[1][0] == 'X' && tabuleiro[2][0] == 'X'
+				|| tabuleiro[0][0] == 'O' && tabuleiro[1][0] == 'O' && tabuleiro[2][0] == 'O') {
+			if (tabuleiro[0][0] == 'X' && tabuleiro[1][0] == 'X' && tabuleiro[2][0] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// Vertical meio
+		if (tabuleiro[0][1] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][1] == 'X'
+				|| tabuleiro[0][1] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][1] == 'O') {
+			if (tabuleiro[0][1] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][1] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+		// Vertical direita
+		if (tabuleiro[0][2] == 'X' && tabuleiro[1][2] == 'X' && tabuleiro[2][2] == 'X'
+				|| tabuleiro[0][2] == 'O' && tabuleiro[1][2] == 'O' && tabuleiro[2][2] == 'O') {
+			if (tabuleiro[0][2] == 'X' && tabuleiro[1][2] == 'X' && tabuleiro[2][2] == 'X') {
+				System.out.println("Parabéns, jogador 1 venceu!");
+				jogoAcabou = true;
+			} else {
+				System.out.println("Parabéns, jogador 2 venceu!");
+				jogoAcabou = true;
+			}
+		}
+	}
+
 }
