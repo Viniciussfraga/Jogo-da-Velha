@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 import tabuleiro.Tabuleiro;
 
 public class Program {
@@ -15,13 +16,14 @@ public class Program {
 		int jogador = 0;
 
 		if (tecla == 'p') {
-			System.out.println("Jogador um é representando por 'X' e jogador dois é representado por 'O'. ");
+			System.out.println("Jogador um Ã© representando por 'X' e jogador dois Ã© representado por 'O'. ");
 		} else if (tecla == 'e') {
 			System.exit(tecla);
 		}
 		tabuleiro.imprimeTab();
 		
 		while ((!tabuleiro.getJogoAcabou())) {
+			if(tabuleiro.auxPosicao == false) {
 			jogador = (jogador == 1) ? 2 : 1;
 			turno++;
 			System.out.println("Turno: " + turno);
@@ -30,7 +32,16 @@ public class Program {
 			posicao = input.next();
 			tabuleiro.mTabuleiro(posicao, jogador);
 			tabuleiro.imprimeTab();
-			
+			}
+			else {
+			System.out.println("Turno: " + turno);
+			System.out.println();
+			System.out.println("Vez do jogador " + jogador);
+			posicao = input.next();
+			tabuleiro.mTabuleiro(posicao, jogador);
+			tabuleiro.imprimeTab();
+				
+			}
 		}
 		input.close();
 	}
