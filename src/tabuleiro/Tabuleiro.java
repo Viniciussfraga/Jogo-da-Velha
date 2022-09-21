@@ -4,18 +4,16 @@ public class Tabuleiro {
 
 	private char[][] tabuleiro = new char[3][3];
 	private int row, column;
+	boolean venceuX = false;
+	boolean venceuO = false;
 	boolean jogoAcabou = false;
 	public boolean auxPosicao = false;
 
 	public Tabuleiro() {
 	}
 
-	public boolean getJogoAcabou() {
+	public boolean getjogoAcabou() {
 		return jogoAcabou;
-	}
-
-	public void setJogoAcabou(boolean jogoAcabou) {
-		this.jogoAcabou = jogoAcabou;
 	}
 
 	public char[][] mTabuleiro(String posicao, int jogador) {
@@ -65,95 +63,89 @@ public class Tabuleiro {
 	}
 
 	public void vitoria() {
+	
 		// diagonal esquerda cima
-		if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X'
-				|| tabuleiro[0][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][2] == 'O') {
-			if (tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X' ? true : false;
+		venceuO = tabuleiro[0][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// diagonal esquerda baixo
-		if (tabuleiro[2][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[0][2] == 'X'
-				|| tabuleiro[2][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[0][2] == 'O') {
-			if (tabuleiro[2][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[0][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[2][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[0][2] == 'X' ? true : false;
+		venceuO = tabuleiro[2][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[0][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// horizontal topo
-		if (tabuleiro[0][0] == 'X' && tabuleiro[0][1] == 'X' && tabuleiro[0][2] == 'X'
-				|| tabuleiro[0][0] == 'O' && tabuleiro[0][1] == 'O' && tabuleiro[0][2] == 'O') {
-			if (tabuleiro[0][0] == 'X' && tabuleiro[0][1] == 'X' && tabuleiro[0][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[0][0] == 'X' && tabuleiro[0][1] == 'X' && tabuleiro[0][2] == 'X' ? true : false;
+		venceuO = tabuleiro[0][0] == 'O' && tabuleiro[0][1] == 'O' && tabuleiro[0][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// horizontal meio
-		if (tabuleiro[1][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[1][2] == 'X'
-				|| tabuleiro[1][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[1][2] == 'O') {
-			if (tabuleiro[1][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[1][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[1][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[1][2] == 'X' ? true : false;
+		venceuO = tabuleiro[1][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[1][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// horizontal baixo
-		if (tabuleiro[2][0] == 'X' && tabuleiro[2][1] == 'X' && tabuleiro[2][2] == 'X'
-				|| tabuleiro[2][0] == 'O' && tabuleiro[2][1] == 'O' && tabuleiro[2][2] == 'O') {
-			if (tabuleiro[2][0] == 'X' && tabuleiro[2][1] == 'X' && tabuleiro[2][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[2][0] == 'X' && tabuleiro[2][1] == 'X' && tabuleiro[2][2] == 'X' ? true : false;
+		venceuO = tabuleiro[2][0] == 'O' && tabuleiro[2][1] == 'O' && tabuleiro[2][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// Vertical esquerda
-		if (tabuleiro[0][0] == 'X' && tabuleiro[1][0] == 'X' && tabuleiro[2][0] == 'X'
-				|| tabuleiro[0][0] == 'O' && tabuleiro[1][0] == 'O' && tabuleiro[2][0] == 'O') {
-			if (tabuleiro[0][0] == 'X' && tabuleiro[1][0] == 'X' && tabuleiro[2][0] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[0][0] == 'X' && tabuleiro[1][0] == 'X' && tabuleiro[2][0] == 'X' ? true : false;
+		venceuO = tabuleiro[0][0] == 'O' && tabuleiro[1][0] == 'O' && tabuleiro[2][0] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// Vertical meio
-		if (tabuleiro[0][1] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][1] == 'X'
-				|| tabuleiro[0][1] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][1] == 'O') {
-			if (tabuleiro[0][1] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][1] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[0][1] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][1] == 'X' ? true : false;
+		venceuO = tabuleiro[0][1] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][1] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 		// Vertical direita
-		if (tabuleiro[0][2] == 'X' && tabuleiro[1][2] == 'X' && tabuleiro[2][2] == 'X'
-				|| tabuleiro[0][2] == 'O' && tabuleiro[1][2] == 'O' && tabuleiro[2][2] == 'O') {
-			if (tabuleiro[0][2] == 'X' && tabuleiro[1][2] == 'X' && tabuleiro[2][2] == 'X') {
-				System.out.println("Parabéns, jogador 1 venceu!");
-				jogoAcabou = true;
-			} else {
-				System.out.println("Parabéns, jogador 2 venceu!");
-				jogoAcabou = true;
-			}
+		venceuX = tabuleiro[0][2] == 'X' && tabuleiro[1][2] == 'X' && tabuleiro[2][2] == 'X' ? true : false;
+		venceuO = tabuleiro[0][2] == 'O' && tabuleiro[1][2] == 'O' && tabuleiro[2][2] == 'O' ? true : false;
+		if (venceuX) {
+			System.out.println("Parabéns, jogador 1 venceu!");
+			jogoAcabou = true;
+		} else if (venceuO) {
+			System.out.println("Parabéns, jogador 2 venceu!");
+			jogoAcabou = true;
 		}
 	}
+		
 
 	private void testaempate() {
 		int count = 1;

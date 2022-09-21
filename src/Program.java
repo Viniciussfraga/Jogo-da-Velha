@@ -22,7 +22,7 @@ public class Program {
 		}
 		tabuleiro.imprimeTab();
 		
-		while ((!tabuleiro.getJogoAcabou())) {
+		while ((!tabuleiro.getjogoAcabou())) {
 			if(tabuleiro.auxPosicao == false) {
 			jogador = (jogador == 1) ? 2 : 1;
 			turno++;
