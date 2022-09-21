@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-
-import tabuleiro.Tabuleiro;
+import entities.JogoDaVelha;
+import entities.Tabuleiro;
+import entities.impTela;
 
 public class Program {
 
@@ -10,19 +11,19 @@ public class Program {
 		Scanner input = new Scanner(System.in);
 		char tecla = input.next().toUpperCase().charAt(0);
 		Tabuleiro tabuleiro = new Tabuleiro();
-		tabuleiro.iniciarTab();
 		String posicao;
 		int turno = 0;
 		int jogador = 0;
-
+		tabuleiro.iniciarTab();
+		
 		if (tecla == 'p') {
 			System.out.println("Jogador um é representando por 'X' e jogador dois é representado por 'O'. ");
 		} else if (tecla == 'e') {
 			System.exit(tecla);
 		}
-		tabuleiro.imprimeTab();
+		impTela.imprimeTab(tabuleiro);
 		
-		while ((!tabuleiro.getjogoAcabou())) {
+		while ((!JogoDaVelha.getJogoAcabou())) {
 			if(tabuleiro.auxPosicao == false) {
 			jogador = (jogador == 1) ? 2 : 1;
 			turno++;
@@ -30,16 +31,16 @@ public class Program {
 			System.out.println();
 			System.out.println("Vez do jogador " + jogador);
 			posicao = input.next();
-			tabuleiro.mTabuleiro(posicao, jogador);
-			tabuleiro.imprimeTab();
+			tabuleiro.mTabuleiro(posicao, jogador,turno);
+			impTela.imprimeTab(tabuleiro);
 			}
 			else {
 			System.out.println("Turno: " + turno);
 			System.out.println();
 			System.out.println("Vez do jogador " + jogador);
 			posicao = input.next();
-			tabuleiro.mTabuleiro(posicao, jogador);
-			tabuleiro.imprimeTab();
+			tabuleiro.mTabuleiro(posicao, jogador,turno);
+			impTela.imprimeTab(tabuleiro);
 				
 			}
 		}
